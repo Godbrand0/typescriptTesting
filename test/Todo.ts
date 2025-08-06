@@ -20,6 +20,14 @@ describe("Todo", function () {
     return { todo, owner, otherAccount, accountA };
   }
 
+  describe("deployment", function(){
+    it("test if contract deployed", async function () {
+      const { todo, owner, otherAccount, accountA } = await loadFixture(deployTodo);
+      const address = await todo.getAddress()
+      expect(address).to.be.properAddress
+      
+    })
+  })
 
   describe("Test for todoList contract", function (){
   it("test to create a new todo", 
